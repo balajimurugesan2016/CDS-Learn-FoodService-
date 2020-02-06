@@ -1,0 +1,188 @@
+{
+  "namespace": "sap.cafe",
+  "definitions": {
+    "foodService": {
+      "kind": "service",
+      "@source": "srv/FoodService.cds"
+    },
+    "foodService.ServingCounter": {
+      "kind": "entity",
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "FOODSERVICE_SERVINGCOUNTER",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "sap.cafetaria.ServingCounter"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "servingcounterID": {
+          "@cds.persistence.name": "SERVINGCOUNTERID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Description": {
+          "@cds.persistence.name": "DESCRIPTION",
+          "type": "cds.String",
+          "length": 200
+        },
+        "servingCountervendorgroupID": {
+          "@cds.persistence.name": "SERVINGCOUNTERVENDORGROUPID",
+          "type": "cds.Integer"
+        },
+        "Dish": {
+          "@cds.persistence.name": "DISH",
+          "type": "cds.Association",
+          "target": "foodService.dish",
+          "on": [
+            {
+              "ref": [
+                "Dish",
+                "ServingCounterNumber"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "servingcounterID"
+              ]
+            }
+          ]
+        }
+      },
+      "$syntax": "projection"
+    },
+    "foodService.dish": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "FOODSERVICE_DISH",
+      "@createonly": true,
+      "@readonly": true,
+      "@updateonly": true,
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "sap.cafe.Dish"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "DishID": {
+          "@cds.persistence.name": "DISHID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Dishtitle": {
+          "@cds.persistence.name": "DISHTITLE",
+          "type": "cds.String"
+        },
+        "ServingCounterNumber": {
+          "@cds.persistence.name": "SERVINGCOUNTERNUMBER",
+          "type": "cds.Integer"
+        },
+        "DishPref": {
+          "@cds.persistence.name": "DISHPREF",
+          "type": "cds.String",
+          "enum": {
+            "veg": {},
+            "nonveg": {}
+          }
+        }
+      },
+      "$syntax": "projection"
+    },
+    "sap.cafe.Dish": {
+      "kind": "entity",
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "SAP_CAFE_DISH",
+      "elements": {
+        "DishID": {
+          "@cds.persistence.name": "DISHID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Dishtitle": {
+          "@cds.persistence.name": "DISHTITLE",
+          "type": "cds.String"
+        },
+        "ServingCounterNumber": {
+          "@cds.persistence.name": "SERVINGCOUNTERNUMBER",
+          "type": "cds.Integer"
+        },
+        "DishPref": {
+          "@cds.persistence.name": "DISHPREF",
+          "type": "cds.String",
+          "enum": {
+            "veg": {},
+            "nonveg": {}
+          }
+        }
+      }
+    },
+    "sap.cafe.Preference": {
+      "kind": "type",
+      "@cds.persistence.name": "SAP_CAFE_PREFERENCE",
+      "type": "cds.String",
+      "enum": {
+        "veg": {},
+        "nonveg": {}
+      }
+    },
+    "sap.cafetaria.ServingCounter": {
+      "kind": "entity",
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "SAP_CAFETARIA_SERVINGCOUNTER",
+      "elements": {
+        "servingcounterID": {
+          "@cds.persistence.name": "SERVINGCOUNTERID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Description": {
+          "@cds.persistence.name": "DESCRIPTION",
+          "type": "cds.String",
+          "length": 200
+        },
+        "servingCountervendorgroupID": {
+          "@cds.persistence.name": "SERVINGCOUNTERVENDORGROUPID",
+          "type": "cds.Integer"
+        },
+        "Dish": {
+          "@cds.persistence.name": "DISH",
+          "type": "cds.Association",
+          "target": "sap.cafe.Dish",
+          "on": [
+            {
+              "ref": [
+                "Dish",
+                "ServingCounterNumber"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "servingcounterID"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "version": {
+    "csn": "1.0"
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.18.2"
+  },
+  "$version": "1.0",
+  "@sql_mapping": "plain"
+}
