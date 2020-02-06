@@ -3,6 +3,7 @@ sap/cafetaria/ServingCounter_.class
 sap/cafetaria/ServingCounter.class
 foodservice/Dish.class
 foodservice/ServingCounter_.class
+com/sap/cafetaria/dishes/Application.class
 sap/cafe/Dish.class
 foodservice/ServingCounter.class
 foodservice/Dish_.class
