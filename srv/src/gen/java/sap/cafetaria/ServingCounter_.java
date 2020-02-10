@@ -21,5 +21,5 @@ public interface ServingCounter_ extends StructuredType<ServingCounter_> {
 
   Dish_ Dish(Function<Dish_, Predicate> filter);
 
-  ElementRef<Integer> servingCountervendorgroupID();
+  ElementRef<String> servingCountervendorgroupID();
 }

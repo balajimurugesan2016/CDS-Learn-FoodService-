@@ -32,7 +32,7 @@ public interface ServingCounter extends CdsData {
   @CdsName(DISH)
   void setDish(Map<String, ?> dish);
 
-  Integer getServingCountervendorgroupID();
+  String getServingCountervendorgroupID();
 
-  void setServingCountervendorgroupID(Integer servingCountervendorgroupID);
+  void setServingCountervendorgroupID(String servingCountervendorgroupID);
 }

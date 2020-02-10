@@ -31,7 +31,7 @@
         },
         "servingCountervendorgroupID": {
           "@cds.persistence.name": "SERVINGCOUNTERVENDORGROUPID",
-          "type": "cds.Integer"
+          "type": "cds.LargeString"
         },
         "Dish": {
           "@cds.persistence.name": "DISH",
@@ -57,13 +57,9 @@
     },
     "foodService.dish": {
       "kind": "entity",
-      "@Capabilities.DeleteRestrictions.Deletable": false,
-      "@Capabilities.InsertRestrictions.Insertable": false,
-      "@Capabilities.UpdateRestrictions.Updatable": false,
       "@cds.autoexpose": true,
       "@cds.persistence.name": "FOODSERVICE_DISH",
       "@createonly": true,
-      "@readonly": true,
       "@updateonly": true,
       "query": {
         "SELECT": {
@@ -153,7 +149,7 @@
         },
         "servingCountervendorgroupID": {
           "@cds.persistence.name": "SERVINGCOUNTERVENDORGROUPID",
-          "type": "cds.Integer"
+          "type": "cds.LargeString"
         },
         "Dish": {
           "@cds.persistence.name": "DISH",

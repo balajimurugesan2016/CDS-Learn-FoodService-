@@ -10,7 +10,7 @@ CREATE TABLE sap_cafe_Dish (
 CREATE TABLE sap_cafetaria_ServingCounter (
   servingcounterID INTEGER NOT NULL,
   Description NVARCHAR(200),
-  servingCountervendorgroupID INTEGER,
+  servingCountervendorgroupID NCLOB,
   PRIMARY KEY(servingcounterID)
 );
 
